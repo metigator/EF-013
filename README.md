@@ -60,13 +60,6 @@ CREATE TABLE Offices (
     OfficeLocation VARCHAR(50) NOT NULL
 );
 
-    -- Inserting data for Offices
-    INSERT INTO Courses (Id, OfficeName, OfficeLocation) VALUES (1, 'Off_05', building A);
-    INSERT INTO Courses (Id, OfficeName, OfficeLocation) VALUES (2, 'Off_12', building B);
-    INSERT INTO Courses (Id, OfficeName, OfficeLocation) VALUES (3, 'Off_32', Adminstration);
-    INSERT INTO Courses (Id, OfficeName, OfficeLocation) VALUES (4, 'Off_44', IT Department);
-    INSERT INTO Courses (Id, OfficeName, OfficeLocation) VALUES (5, 'Off_43', IT Department);
-
 ```
 
 ##### + Instructors Table :mens:
@@ -90,13 +83,6 @@ CREATE TABLE Instructors (
     Name VARCHAR(50) NOT NULL,
     OfficeId INT NOT NULL REFERENCES Offices(Id),
 );
-
-    -- Inserting data for Instructors
-    INSERT INTO Instructors (Id, Name, OfficeId) VALUES (1, 'Ahmed Abdullah', 1);
-    INSERT INTO Instructors (Id, Name, OfficeId) VALUES (2, 'Yasmeen Mohammed', 2);
-    INSERT INTO Instructors (Id, Name, OfficeId) VALUES (3, 'Khalid Hassan', 3);
-    INSERT INTO Instructors (Id, Name, OfficeId) VALUES (4, 'Nadia Ali', 4);
-    INSERT INTO Instructors (Id, Name, OfficeId) VALUES (5, 'Omar Ibrahim', 5);
 
 ```
 
@@ -129,12 +115,6 @@ CREATE TABLE Schedules
     SAT BIT NOT NULL
 );
 
-    -- Inserting data for Schedules
-    INSERT INTO Schedules (Id, Title, SUN, MON, TUE, WED, THU, FRI, SAT) VALUES (1, 'Daily', 1, 1, 1, 1, 1, 0, 0);
-    INSERT INTO Schedules (Id, Title, SUN, MON, TUE, WED, THU, FRI, SAT) VALUES (2, 'DayAfterDay', 1, 0, 1, 0, 1, 0, 0);
-    INSERT INTO Schedules (Id, Title, SUN, MON, TUE, WED, THU, FRI, SAT) VALUES (3, 'Twice-a-Week', 0, 1, 0, 1, 0, 0, 0);
-    INSERT INTO Schedules (Id, Title, SUN, MON, TUE, WED, THU, FRI, SAT) VALUES (4, 'Weekend', 0, 0, 0, 0, 0, 1, 1);
-    INSERT INTO Schedules (Id, Title, SUN, MON, TUE, WED, THU, FRI, SAT) VALUES (5, 'Compact', 1, 1, 1, 1, 1, 1, 1);
 ```
 
 ##### + Sections Table :department_store:
@@ -171,23 +151,12 @@ CREATE TABLE Sections (
     FOREIGN KEY (InstructorId) REFERENCES Instructors(Id)
 );
 
-    -- indexes
-    CREATE INDEX idx_sections_course_id ON Sections (CourseId);
-    CREATE INDEX idx_sections_instructor_id ON Sections (InstructorId);
-
-    INSERT INTO Sections (Id, SectionName, CourseId, InstructorId, ScheduleId, StartTime, EndTime) VALUES (1, 'S_MA1', 1, 1, 1, '08:00:00', '10:00:00');
-    INSERT INTO Sections (Id, SectionName, CourseId, InstructorId, ScheduleId, StartTime, EndTime) VALUES (2, 'S_MA2', 1, 2, 3, '14:00:00', '18:00:00');
-    INSERT INTO Sections (Id, SectionName, CourseId, InstructorId, ScheduleId, StartTime, EndTime) VALUES (3, 'S_PH1', 2, 1, 4, '10:00:00', '15:00:00');
-    INSERT INTO Sections (Id, SectionName, CourseId, InstructorId, ScheduleId, StartTime, EndTime) VALUES (4, 'S_PH2', 2, 3, 1, '10:00:00', '12:00:00');
-    INSERT INTO Sections (Id, SectionName, CourseId, InstructorId, ScheduleId, StartTime, EndTime) VALUES (5, 'S_CH1', 3, 2, 1, '16:00:00', '18:00:00');
-    INSERT INTO Sections (Id, SectionName, CourseId, InstructorId, ScheduleId, StartTime, EndTime) VALUES (6, 'S_CH2', 3, 3, 2, '08:00:00', '10:00:00');
-    INSERT INTO Sections (Id, SectionName, CourseId, InstructorId, ScheduleId, StartTime, EndTime) VALUES (7, 'S_FSD', 4, 4, 3, '11:00:00', '14:00:00');
-    INSERT INTO Sections (Id, SectionName, CourseId, InstructorId, ScheduleId, StartTime, EndTime) VALUES (8, 'S_AUT', 4, 5, 4, '10:00:00', '14:00:00');
-    INSERT INTO Sections (Id, SectionName, CourseId, InstructorId, ScheduleId, StartTime, EndTime) VALUES (9, 'S_FSD', 5, 4, 4, '16:00:00', '18:00:00');
-    INSERT INTO Sections (Id, SectionName, CourseId, InstructorId, ScheduleId, StartTime, EndTime) VALUES (10,'S_AUT', 5, 5, 3, '12:00:00', '15:00:00');
-    INSERT INTO Sections (Id, SectionName, CourseId, InstructorId, ScheduleId, StartTime, EndTime) VALUES (11,'S_FSD', 5, 4, 5, '09:00:00', '11:00:00');
 ```
+
 #### Student Table 
+
+>> Requirement 
+
 1) Student Table to be renamed to participant
 2) Two type of participant (individual, corporate)
 
@@ -215,14 +184,16 @@ public class CorporateParticipant : Participant
     public string GroupNo { get; set; }
 }
 
-
   ```
+  
+  
   
 > TPH (1 table per heirarchy)
 
+
 <div style="padding: 10px; font-size: 10px; font-weight: bold">
 
-#### Participant Table 
+* Participant Table 
 
 | Id   |Participant Name| Participant_Type  | Major|  Company |  JobTitle  |  GroupNo |
 |------|----------------|-------------------| -----| ---------|------------|----------|
@@ -239,6 +210,8 @@ public class CorporateParticipant : Participant
 
 </div>
 
+
+
 ```sql
 CREATE TABLE Participants (
     Id INTEGER NOT NULL PRIMARY KEY,
@@ -252,9 +225,13 @@ CREATE TABLE Participants (
 ```
 
 
+
+
 > TPT Table Per Type (1 table per type)
 
-#### Participant Table 
+
+
+* Participant Table 
 <div style="padding: 10px; font-size: 10px; font-weight: bold">
 
 | Id   |Participant Name|
@@ -270,7 +247,10 @@ CREATE TABLE Participants (
 | 9    | Mohammed Adel  |
 | 10   | Samira Nabil   |
 
+
 </div>
+
+
 
 ```sql
 -- Participants
@@ -280,7 +260,10 @@ CREATE TABLE Participants (
 );
 ```
 
-#### IndividualParticipant Table 
+
+* IndividualParticipant Table 
+
+
 <div style="padding: 10px; font-size: 10px; font-weight: bold">
 
 | Id    | Major  | PId(FK) |
@@ -303,7 +286,8 @@ CREATE TABLE Participants (
 );
 ```
     
-#### CorporateParticipant Table 
+* CorporateParticipant Table 
+
 <div style="padding: 10px; font-size: 10px; font-weight: bold">
     
 | Id    | Company |  JobTitle | GroupNo | PId |
@@ -330,7 +314,7 @@ CREATE TABLE Participants (
 
 <div style="padding: 10px; font-size: 10px; font-weight: bold">
 
-#### IndividualParticipant Table 
+* IndividualParticipant Table 
 
 | Id   |Participant Name| Major  |
 |------|----------------|--------|
@@ -352,7 +336,7 @@ CREATE TABLE Participants (
 ```
 
 
-#### CorporateParticipant Table 
+* CorporateParticipant Table 
 
 | Id    |Participant Name| Company |  JobTitle | GroupNo| 
 |-------|----------------|---------|-----------|--------|
@@ -373,9 +357,10 @@ CREATE TABLE Participants (
     GroupNo NVARCHAR(50) NOT NULL
 );
 ```
-#### + Student Enrollment :man: :girl:
-  
 
+
+#### + Participant Enrollment :man: :girl:
+  
 
 <div style="padding: 10px; font-size: 10px; font-weight: bold">
 
@@ -396,25 +381,6 @@ CREATE TABLE Participants (
 
 ``` sql
 
--- Students Table
-CREATE TABLE Students (
-    Id INT PRIMARY KEY,
-    Name VARCHAR(255) NOT NULL,
-);
-
-    -- Inserting data for Students
-    INSERT INTO Students (Id, Name) VALUES (1, 'Fatima Ali');
-    INSERT INTO Students (Id, Name) VALUES (2, 'Noor Saleh');
-    INSERT INTO Students (Id, Name) VALUES (3, 'Omar Youssef');
-    INSERT INTO Students (Id, Name) VALUES (4, 'Huda Ahmed');
-    INSERT INTO Students (Id, Name) VALUES (5, 'Amira Tariq');
-    INSERT INTO Students (Id, Name) VALUES (6, 'Zainab Ismail');
-    INSERT INTO Students (Id, Name) VALUES (7, 'Yousef Farid');
-    INSERT INTO Students (Id, Name) VALUES (8, 'Layla Mustafa');
-    INSERT INTO Students (Id, Name) VALUES (9, 'Mohammed Adel');
-    INSERT INTO Students (Id, Name) VALUES (10, 'Samira Nabil');
-
-
 -- Enrollments Table
 CREATE TABLE Enrollments (
     ParticipantId INT,
@@ -423,21 +389,5 @@ CREATE TABLE Enrollments (
     FOREIGN KEY (ParticipantId) REFERENCES Participants(Id),
     FOREIGN KEY (SectionId) REFERENCES Sections(Id)
 );
-
-
-    -- indexes
-    CREATE INDEX idx_enrollments_section_id ON Enrollments (SectionId);
-
-    -- Inserting data for Enrollments
-    INSERT INTO Enrollments (ParticipantId, SectionId) VALUES (1, 6);
-    INSERT INTO Enrollments (ParticipantId, SectionId) VALUES (2, 6);
-    INSERT INTO Enrollments (ParticipantId, SectionId) VALUES (3, 7);
-    INSERT INTO Enrollments (ParticipantId, SectionId) VALUES (4, 7);
-    INSERT INTO Enrollments (ParticipantId, SectionId) VALUES (5, 8);
-    INSERT INTO Enrollments (ParticipantId, SectionId) VALUES (6, 8);
-    INSERT INTO Enrollments (ParticipantId, SectionId) VALUES (7, 9);
-    INSERT INTO Enrollments (ParticipantId, SectionId) VALUES (8, 9);
-    INSERT INTO Enrollments (ParticipantId, SectionId) VALUES (9, 10);
-    INSERT INTO Enrollments (ParticipantId, SectionId) VALUES (10, 10);
 
 ```
