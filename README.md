@@ -224,7 +224,7 @@ public class CorporateParticipant : Participant
 
 #### Participant Table 
 
-| Id   |         Name   | Participant_Type  | Major|  Company |  JobTitle  |  GroupNo |
+| Id   |Participant Name| Participant_Type  | Major|  Company |  JobTitle  |  GroupNo |
 |------|----------------|-------------------| -----| ---------|------------|----------|
 | 1    | Fatima Ali     |     I             |  CS  |          |            |          |
 | 2    | Noor Saleh     |     C             |  BIS |          |            |          |
@@ -239,15 +239,25 @@ public class CorporateParticipant : Participant
 
 </div>
 
+```sql
+CREATE TABLE Participants (
+    Id INTEGER NOT NULL PRIMARY KEY,
+    Name NVARCHAR(50) NOT NULL,
+    ParticipantType NVARCHAR(1) NOT NULL,
+    Company NVARCHAR(50) NULL,
+    JobTitle NVARCHAR(50) NULL,
+    GroupNo NVARCHAR(50) NULL,
+    Major NVARCHAR(50) NULL
+);
+```
+
 
 ##### TPT (1 table per type)
 
+#### Participant Table 
 <div style="padding: 10px; font-size: 10px; font-weight: bold">
 
-#### Participant Table 
-
-
-| Id   | Student Name   |
+| Id   |Participant Name|
 |------|----------------|
 | 1    | Fatima Ali     |
 | 2    | Noor Saleh     |
@@ -259,8 +269,19 @@ public class CorporateParticipant : Participant
 | 8    | Layla Mustafa  |
 | 9    | Mohammed Adel  |
 | 10   | Samira Nabil   |
- 
+
+</div>
+
+```sql
+-- Participants
+CREATE TABLE Participants (
+    Id INT PRIMARY KEY,
+    Name TEXT NOT NULL
+);
+```
+
 #### IndividualParticipant Table 
+<div style="padding: 10px; font-size: 10px; font-weight: bold">
 
 | Id    | Major  | PId(FK) |
 |-------|--------|---------|
@@ -270,9 +291,19 @@ public class CorporateParticipant : Participant
 | 4     |   CS   | 6       | 
 | 5     |   MIS  | 9       |
 | 6     |   CS   | 10      |
+</div>
+
+```sql
+-- IndividualParticipants
+    CREATE TABLE IndividualParticipants (
+    Id INT  PRIMARY KEY,
+    Major NVARCHAR(50) NOT NULL
+    PID INT NOT NULL REFERENCES Participants("Id")
+);
+```
     
 #### CorporateParticipant Table 
-
+<div style="padding: 10px; font-size: 10px; font-weight: bold">
 | Id    | Company |  JobTitle | GroupNo | PId |
 |-------|---------|-----------|---------|-----|
 | 1     |   ABC   | Developer |   G01   | 3   |
@@ -281,6 +312,17 @@ public class CorporateParticipant : Participant
 | 4     |   EFG   |    QA     |   G02   | 8   |
 
 </div>
+
+```sql
+-- CorporateParticipants
+    CREATE TABLE CorporateParticipants (
+    Id INT  PRIMARY KEY,
+    Company NVARCHAR(50) NOT NULL
+    JobTitle NVARCHAR(50) NOT NULL
+    GroupNo NVARCHAR(50) NOT NULL
+    PID INT NOT NULL REFERENCES Participants("Id")
+);
+```
 
 ##### TPC (1 table per concrete type)
 
