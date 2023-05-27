@@ -198,7 +198,7 @@ CREATE TABLE Sections (
 public abstract class Participant
 {
     public int Id { get; set; }
-    public string Name { get; set; }
+    public string ParticipantName { get; set; }
 }
 
 // Individual (الأفراد)
@@ -242,7 +242,7 @@ public class CorporateParticipant : Participant
 ```sql
 CREATE TABLE Participants (
     Id INTEGER NOT NULL PRIMARY KEY,
-    Name NVARCHAR(50) NOT NULL,
+    ParticipantName NVARCHAR(50) NOT NULL,
     ParticipantType NVARCHAR(1) NOT NULL,
     Company NVARCHAR(50) NULL,
     JobTitle NVARCHAR(50) NULL,
@@ -330,44 +330,49 @@ CREATE TABLE Participants (
 
 <div style="padding: 10px; font-size: 10px; font-weight: bold">
 
-#### Participant Table 
-
-
-| Id   | Student Name   |
-|------|----------------|
-| 1    | Fatima Ali     |
-| 2    | Noor Saleh     |
-| 3    | Omar Youssef   |
-| 4    | Huda Ahmed     |
-| 5    | Amira Tariq    |
-| 6    | Zainab Ismail  |
-| 7    | Yousef Farid   |
-| 8    | Layla Mustafa  |
-| 9    | Mohammed Adel  |
-| 10   | Samira Nabil   |
- 
 #### IndividualParticipant Table 
 
-| Id    | Major  | PId(FK) |
-|-------|--------|---------|
-| 1     |   CS   | 1       |
-| 2     |   BIS  | 3       |
-| 3     |   CS   | 5       |
-| 4     |   CS   | 6       | 
-| 5     |   MIS  | 9       |
-| 6     |   CS   | 10      |
+| Id   |Participant Name| Major  |
+|------|----------------|--------|
+| 1    | Fatima Ali     | CS     |
+| 2    | Noor Saleh     | BIS    | 
+| 3    | Amira Tariq    | CS     |
+| 4    | Zainab Ismail  | CS     |
+| 5    | Mohammed Adel  | MIS    | 
+| 6    | Samira Nabil   | CS     |
     
+    
+```sql
+-- IndividualParticipants
+    CREATE TABLE IndividualParticipants (
+    Id INT  PRIMARY KEY,
+    ParticipantName NVARCHAR(50) NOT NULL
+    Major NVARCHAR(50) NOT NULL
+);
+```
+
+
 #### CorporateParticipant Table 
 
-| Id    | Company |  JobTitle | GroupNo | PId |
-|-------|---------|-----------|---------|-----|
-| 1     |   ABC   | Developer |   G01   | 2   |
-| 2     |   EFG   | Developer |   G02   | 4   |
-| 3     |   ABC   |    QA     |   G01   | 7   |
-| 4     |   EFG   |    QA     |   G02   | 8   |
+| Id    |Participant Name| Company |  JobTitle | GroupNo| 
+|-------|----------------|---------|-----------|--------|
+| 1     | Omar Youssef   |  ABC   | Developer |   G01   |
+| 2     | Huda Ahmed     |  ABC   | Developer |   G01   |
+| 3     | Yousef Farid   |  EFG   |    QA     |   G02   |
+| 4     | Layla Mustafa  |  EFG   |    QA     |   G02   |
 
 </div>
 
+```sql
+-- CorporateParticipants
+    CREATE TABLE CorporateParticipants (
+    Id INT  PRIMARY KEY,
+    ParticipantName NVARCHAR(50) NOT NULL
+    Company NVARCHAR(50) NOT NULL
+    JobTitle NVARCHAR(50) NOT NULL
+    GroupNo NVARCHAR(50) NOT NULL
+);
+```
 #### + Student Enrollment :man: :girl:
   
 
