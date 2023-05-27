@@ -291,6 +291,7 @@ CREATE TABLE Participants (
 | 4     |   CS   | 6       | 
 | 5     |   MIS  | 9       |
 | 6     |   CS   | 10      |
+    
 </div>
 
 ```sql
@@ -304,6 +305,7 @@ CREATE TABLE Participants (
     
 #### CorporateParticipant Table 
 <div style="padding: 10px; font-size: 10px; font-weight: bold">
+    
 | Id    | Company |  JobTitle | GroupNo | PId |
 |-------|---------|-----------|---------|-----|
 | 1     |   ABC   | Developer |   G01   | 3   |
