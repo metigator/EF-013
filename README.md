@@ -218,7 +218,7 @@ public class CorporateParticipant : Participant
 
   ```
   
-##### TPH (1 table per heirarchy)
+> TPH (1 table per heirarchy)
 
 <div style="padding: 10px; font-size: 10px; font-weight: bold">
 
@@ -252,7 +252,7 @@ CREATE TABLE Participants (
 ```
 
 
-##### TPT (1 table per type)
+> TPT Table Per Type (1 table per type)
 
 #### Participant Table 
 <div style="padding: 10px; font-size: 10px; font-weight: bold">
@@ -326,7 +326,7 @@ CREATE TABLE Participants (
 );
 ```
 
-##### TPC (1 table per concrete type)
+> TPC Table Per Concrete Type (1 table per concrete type)
 
 <div style="padding: 10px; font-size: 10px; font-weight: bold">
 
