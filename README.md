@@ -149,11 +149,11 @@ CREATE TABLE Schedules
 | 4  | Physics        |    S_PH2       | Khalid Hassan    |  Daily        | 08:00:00   | 10:00:00 |  :heavy_check_mark:  |  :heavy_check_mark:  |  :heavy_check_mark:  |  :heavy_check_mark:  |  :heavy_check_mark:  |    |    |
 | 5  | Chemistry      |    S_CH1       | Yasmeen Mohammed |  Daily        | 10:00:00   | 12:00:00 |  :heavy_check_mark:  |  :heavy_check_mark:  |  :heavy_check_mark:  |  :heavy_check_mark:  |  :heavy_check_mark:  |    |    |
 | 6  | Chemistry      |    S_CH2       | Khalid Hassan    |  DayAfterDay  | 14:00:00   | 16:00:00 |  :heavy_check_mark:  |    |  :heavy_check_mark:  |    |  :heavy_check_mark:  |    |    |
-| 7  | Biology        |    S_FSD       | Nadia Ali        |  Twice-a-Week | 16:00:00   | 18:00:00 |    |  :heavy_check_mark:  |    |  :heavy_check_mark:  |    |    |    |
-| 8  | Biology        |    S_AUT       | Omar Ibrahim     |  Weekend      | 08:00:00   | 10:00:00 |    |    |    |    |    |  :heavy_check_mark:  |  :heavy_check_mark:  |
-| 9  | CS50           |    S_FSD        | Nadia Ali        |  Weekend      | 10:00:00   | 15:00:00 |    |    |    |    |    |  :heavy_check_mark:  |  :heavy_check_mark:  |
-| 10 | CS50           |    S_AUT       | Omar Ibrahim     |  Twice-a-Week | 14:00:00   | 16:00:00 |    |  :heavy_check_mark:  |    |  :heavy_check_mark:  |    |    |    |
-| 11 | CS50           |    S_FSD        | Nadia Ali     |  Compact | 09:00:00   | 11:00:00 |  :heavy_check_mark:   |  :heavy_check_mark:  | :heavy_check_mark:    |  :heavy_check_mark:  |  :heavy_check_mark:   |  :heavy_check_mark:   |  :heavy_check_mark:   |
+| 7  | Full Stack Dev.        |    S_FSD       | Nadia Ali        |  Twice-a-Week | 16:00:00   | 18:00:00 |    |  :heavy_check_mark:  |    |  :heavy_check_mark:  |    |    |    |
+| 8  |  Automation Test.        |    S_AUT       | Omar Ibrahim     |  Weekend      | 08:00:00   | 10:00:00 |    |    |    |    |    |  :heavy_check_mark:  |  :heavy_check_mark:  |
+| 9  | Full Stack Dev.           |    S_FSD        | Nadia Ali        |  Weekend      | 10:00:00   | 15:00:00 |    |    |    |    |    |  :heavy_check_mark:  |  :heavy_check_mark:  |
+| 10 | Automation Test.           |    S_AUT       | Omar Ibrahim     |  Twice-a-Week | 14:00:00   | 16:00:00 |    |  :heavy_check_mark:  |    |  :heavy_check_mark:  |    |    |    |
+| 11 | Full Stack Dev.           |    S_FSD        | Nadia Ali     |  Compact | 09:00:00   | 11:00:00 |  :heavy_check_mark:   |  :heavy_check_mark:  | :heavy_check_mark:    |  :heavy_check_mark:  |  :heavy_check_mark:   |  :heavy_check_mark:   |  :heavy_check_mark:   |
 </div>
 
 ``` sql
