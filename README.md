@@ -218,10 +218,11 @@ CREATE TABLE Participants (
     FName NVARCHAR(50) NOT NULL,
     LName NVARCHAR(50) NOT NULL,
     ParticipantType VARCHAR(1) NOT NULL,
+    University NVARCHAR(50) NULL,
+    YearOfGraduation INT NULL,
+    IsIntern bit NULL,
     Company NVARCHAR(50) NULL,
-    JobTitle NVARCHAR(50) NULL,
-    GroupNo NVARCHAR(50) NULL,
-    Major NVARCHAR(50) NULL
+    JobTitle NVARCHAR(50) NULL
 );
 ```
 
@@ -235,19 +236,18 @@ CREATE TABLE Participants (
 * Participant Table 
 <div style="padding: 10px; font-size: 10px; font-weight: bold">
 
-| Id   |Participant Name|
-|------|----------------|
-| 1    | Fatima Ali     |
-| 2    | Noor Saleh     |
-| 3    | Omar Youssef   |
-| 4    | Huda Ahmed     |
-| 5    | Amira Tariq    |
-| 6    | Zainab Ismail  |
-| 7    | Yousef Farid   |
-| 8    | Layla Mustafa  |
-| 9    | Mohammed Adel  |
-| 10   | Samira Nabil   |
-
+| Id   |FName| LName|
+|------|------|-----------|
+| 1    | Fatima| Ali     | 
+| 2    | Noor |Saleh     | 
+| 3    | Omar| Youssef   |
+| 4    | Huda| Ahmed     |
+| 5    | Amira |Tariq    |
+| 6    | Zainab |Ismail  |
+| 7    | Yousef| Farid   |
+| 8    | Layla| Mustafa  |
+| 9    | Mohammed| Adel  |
+| 10   | Samira| Nabil   |
 
 </div>
 
@@ -257,33 +257,35 @@ CREATE TABLE Participants (
 -- Participants
 CREATE TABLE Participants (
     Id INT PRIMARY KEY,
-    Name TEXT NOT NULL
+    FName NVARCHAR(50) NOT NULL
 );
 ```
 
 
-* IndividualParticipant Table 
+* Individual Table 
 
 
 <div style="padding: 10px; font-size: 10px; font-weight: bold">
 
-| Id    | Major  | PId(FK) |
-|-------|--------|---------|
-| 1     |   CS   | 1       |
-| 2     |   BIS  | 2       |
-| 3     |   CS   | 5       |
-| 4     |   CS   | 6       | 
-| 5     |   MIS  | 9       |
-| 6     |   CS   | 10      |
+| Id    | University  | Year Of Graduation | IsIntern | ParticipantId (FK)|
+|-------|--------|---------|---------|---------|
+| 1     |   XYZ   | 2024       | | 1|
+| 2     |   POQ  | 2023       |:heavy_check_mark:| 2|
+| 3     |   POQ   | 2025       || 5|
+| 4     |   POQ   | 2023       | :heavy_check_mark:| 5|
+| 5     |   XYZ  | 2024      || 9|
+| 6     |   XYZ   | 2024     || 10|
     
 </div>
 
 ```sql
--- IndividualParticipants
+-- Individual
     CREATE TABLE IndividualParticipants (
-    Id INT  PRIMARY KEY,
-    Major NVARCHAR(50) NOT NULL
-    PID INT NOT NULL REFERENCES Participants("Id")
+    Id INT  PRIMARY KEY, 
+    University NVARCHAR(50) NULL,
+    YearOfGraduation INT NULL,
+    IsIntern bit NULL,
+    ParticipantId INT NOT NULL REFERENCES Participants("Id")
 );
 ```
     
@@ -291,12 +293,12 @@ CREATE TABLE Participants (
 
 <div style="padding: 10px; font-size: 10px; font-weight: bold">
     
-| Id    | Company |  JobTitle | GroupNo | PId |
-|-------|---------|-----------|---------|-----|
-| 1     |   ABC   | Developer |   G01   | 3   |
-| 2     |   ABC   | Developer |   G01   | 4   |
-| 3     |   EFG   |    QA     |   G02   | 7   |
-| 4     |   EFG   |    QA     |   G02   | 8   |
+| Id    | Company |  JobTitle |  ParticipantId |
+|-------|---------|-----------|-----|
+| 1     |   ABC   | Developer |  3   |
+| 2     |   ABC   | Developer | 4   |
+| 3     |   EFG   |    QA     | 7   |
+| 4     |   EFG   |    QA     | 8   |
 
 </div>
 
@@ -307,7 +309,7 @@ CREATE TABLE Participants (
     Company NVARCHAR(50) NOT NULL
     JobTitle NVARCHAR(50) NOT NULL
     GroupNo NVARCHAR(50) NOT NULL
-    PID INT NOT NULL REFERENCES Participants("Id")
+    ParticipantId INT NOT NULL REFERENCES Participants("Id")
 );
 ```
 
