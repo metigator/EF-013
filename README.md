@@ -195,18 +195,18 @@ public class CorporateParticipant : Participant
 
 * Participant Table 
 
-| Id   |Participant Name| Participant_Type  | Major|  Company |  JobTitle  |  GroupNo |
-|------|----------------|-------------------| -----| ---------|------------|----------|
-| 1    | Fatima Ali     |     I             |  CS  |          |            |          |
-| 2    | Noor Saleh     |     C             |  BIS |          |            |          |
-| 3    | Omar Youssef   |     I             |      |   ABC    |  Developer |   G01    |
-| 4    | Huda Ahmed     |     C             |      |   ABC    |  Developer |   G01    |
-| 5    | Amira Tariq    |     I             |  CS  |          |            |          |
-| 6    | Zainab Ismail  |     I             |  CS  |          |            |          |
-| 7    | Yousef Farid   |     C             |      |   EFG    |   QA       |   G02    |
-| 8    | Layla Mustafa  |     C             |      |   EFG    |   QA       |   G02    | 
-| 9    | Mohammed Adel  |     I             |  MIS |          |            |          |
-| 10   | Samira Nabil   |     I             |  CS  |          |            |          |
+| Id   |FName| LName| Participant_Type  | Major|  Company |  JobTitle  |  GroupNo |
+|------|-----------------|-------------------| -----| ---------|------------|----------|
+| 1    | Fatima| Ali     |     I             |  CS  |          |            |          |
+| 2    | Noor |Saleh     |     C             |  BIS |          |            |          |
+| 3    | Omar| Youssef   |     I             |      |   ABC    |  Developer |   G01    |
+| 4    | Huda| Ahmed     |     C             |      |   ABC    |  Developer |   G01    |
+| 5    | Amira |Tariq    |     I             |  CS  |          |            |          |
+| 6    | Zainab |Ismail  |     I             |  CS  |          |            |          |
+| 7    | Yousef| Farid   |     C             |      |   EFG    |   QA       |   G02    |
+| 8    | Layla| Mustafa  |     C             |      |   EFG    |   QA       |   G02    | 
+| 9    | Mohammed| Adel  |     I             |  MIS |          |            |          |
+| 10   | Samira| Nabil   |     I             |  CS  |          |            |          |
 
 </div>
 
@@ -215,8 +215,9 @@ public class CorporateParticipant : Participant
 ```sql
 CREATE TABLE Participants (
     Id INTEGER NOT NULL PRIMARY KEY,
-    ParticipantName NVARCHAR(50) NOT NULL,
-    ParticipantType NVARCHAR(1) NOT NULL,
+    FName NVARCHAR(50) NOT NULL,
+    LName NVARCHAR(50) NOT NULL,
+    ParticipantType VARCHAR(1) NOT NULL,
     Company NVARCHAR(50) NULL,
     JobTitle NVARCHAR(50) NULL,
     GroupNo NVARCHAR(50) NULL,
