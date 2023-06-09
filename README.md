@@ -196,7 +196,7 @@ public class CorporateParticipant : Participant
 * Participant Table 
 
 | Id   |FName| LName| Participant_Type  | Major|  Company |  JobTitle  |  GroupNo |
-|------|-----------------|-------------------| -----| ---------|------------|----------|
+|------|------|-----------|-------------------| -----| ---------|------------|----------|
 | 1    | Fatima| Ali     |     I             |  CS  |          |            |          |
 | 2    | Noor |Saleh     |     C             |  BIS |          |            |          |
 | 3    | Omar| Youssef   |     I             |      |   ABC    |  Developer |   G01    |
