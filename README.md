@@ -289,7 +289,7 @@ CREATE TABLE Participants (
 );
 ```
     
-* CorporateParticipant Table 
+* Corporate Table 
 
 <div style="padding: 10px; font-size: 10px; font-weight: bold">
     
@@ -303,12 +303,11 @@ CREATE TABLE Participants (
 </div>
 
 ```sql
--- CorporateParticipants
+-- Corporate
     CREATE TABLE CorporateParticipants (
     Id INT  PRIMARY KEY,
     Company NVARCHAR(50) NOT NULL
-    JobTitle NVARCHAR(50) NOT NULL
-    GroupNo NVARCHAR(50) NOT NULL
+    JobTitle NVARCHAR(50) NOT NULL 
     ParticipantId INT NOT NULL REFERENCES Participants("Id")
 );
 ```
@@ -317,36 +316,42 @@ CREATE TABLE Participants (
 
 <div style="padding: 10px; font-size: 10px; font-weight: bold">
 
-* IndividualParticipant Table 
+* Individual Table 
 
-| Id   |Participant Name| Major  |
-|------|----------------|--------|
-| 1    | Fatima Ali     | CS     |
-| 2    | Noor Saleh     | BIS    | 
-| 3    | Amira Tariq    | CS     |
-| 4    | Zainab Ismail  | CS     |
-| 5    | Mohammed Adel  | MIS    | 
-| 6    | Samira Nabil   | CS     |
+| Id   |FName| LName| University  | Year Of Graduation | IsIntern |
+|------|------|-----------|--------|---------|---------|
+| 1    | Fatima| Ali     |    XYZ   | 2024       | |
+| 2    | Noor |Saleh     |    POQ  | 2023       |:heavy_check_mark:|
+| 5    | Amira |Tariq    |   POQ   | 2025       |
+| 6    | Zainab |Ismail  |   POQ   | 2023       | :heavy_check_mark:|
+| 9    | Mohammed| Adel  |   XYZ  | 2024      ||
+| 10   | Samira| Nabil   |   XYZ   | 2024     ||
+
     
     
 ```sql
 -- IndividualParticipants
-    CREATE TABLE IndividualParticipants (
-    Id INT  PRIMARY KEY,
-    ParticipantName NVARCHAR(50) NOT NULL
-    Major NVARCHAR(50) NOT NULL
+    CREATE TABLE Individual (
+    Id INTEGER NOT NULL PRIMARY KEY,
+    FName NVARCHAR(50) NOT NULL,
+    LName NVARCHAR(50) NOT NULL, 
+    University NVARCHAR(50) NOT NULL,
+    YearOfGraduation INT NOT NULL,
+    IsIntern bit NOT NULL,
 );
 ```
 
 
-* CorporateParticipant Table 
+* Corporate Table 
 
-| Id    |Participant Name| Company |  JobTitle | GroupNo| 
-|-------|----------------|---------|-----------|--------|
-| 1     | Omar Youssef   |  ABC   | Developer |   G01   |
-| 2     | Huda Ahmed     |  ABC   | Developer |   G01   |
-| 3     | Yousef Farid   |  EFG   |    QA     |   G02   |
-| 4     | Layla Mustafa  |  EFG   |    QA     |   G02   |
+| Id   |FName| LName|        Company |  JobTitle |
+|------|------|-----------|---------|-----------|
+| 3    | Omar| Youssef   |   ABC   | Developer |
+| 4    | Huda| Ahmed     |   ABC   | Developer |
+| 7    | Yousef| Farid   |   EFG   |    QA     |
+| 8    | Layla| Mustafa  |   EFG   |    QA     |
+
+
 
 </div>
 
@@ -354,10 +359,10 @@ CREATE TABLE Participants (
 -- CorporateParticipants
     CREATE TABLE CorporateParticipants (
     Id INT  PRIMARY KEY,
-    ParticipantName NVARCHAR(50) NOT NULL
-    Company NVARCHAR(50) NOT NULL
+    FName NVARCHAR(50) NOT NULL,
+    LName NVARCHAR(50) NOT NULL, 
+    Company NVARCHAR(50) NOT NULL,
     JobTitle NVARCHAR(50) NOT NULL
-    GroupNo NVARCHAR(50) NOT NULL
 );
 ```
 
