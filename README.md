@@ -195,18 +195,18 @@ public class CorporateParticipant : Participant
 
 * Participant Table 
 
-| Id   |FName| LName| Participant_Type |University | Year Of Graduation| IsIntern|  Company |  JobTitle  |  GroupNo |
-|------|------|-----------|------------|-------| -----| ---|------|------------|----------|
-| 1    | Fatima| Ali     |     I       |  XYZ    |  2024  |   |       |            |          |
-| 2    | Noor |Saleh     |     C        | POQ    |  2023 |  :heavy_check_mark: |       |            |          |
-| 3    | Omar| Youssef   |     I       |      |      |   |ABC    |  Developer |   G01    |
-| 4    | Huda| Ahmed     |     C       |      |      |   |ABC    |  Developer |   G01    |
-| 5    | Amira |Tariq    |     I        |  POQ   |  2025  |   |        |            |          |
-| 6    | Zainab |Ismail  |     I        |  POQ   |  2023  | :heavy_check_mark:  |       |            |          |
-| 7    | Yousef| Farid   |     C        |     |      |   |EFG    |   QA       |   G02    |
-| 8    | Layla| Mustafa  |     C        |     |      |   |EFG    |   QA       |   G02    | 
-| 9    | Mohammed| Adel  |     I        |  XYZ   |  2024 |   |       |            |          |
-| 10   | Samira| Nabil   |     I        | XYZ    |  2024  |   |       |            |          |
+| Id   |FName| LName| Participant_Type |University | Year Of Graduation| IsIntern|  Company |  JobTitle  |
+|------|------|-----------|------------|-------| -----| ---|------|------------|
+| 1    | Fatima| Ali     |     I       |  XYZ    |  2024  |   |       |            |
+| 2    | Noor |Saleh     |     C        | POQ    |  2023 |  :heavy_check_mark: |       |
+| 3    | Omar| Youssef   |     I       |      |      |   |ABC    |  Developer |
+| 4    | Huda| Ahmed     |     C       |      |      |   |ABC    |  Developer |
+| 5    | Amira |Tariq    |     I        |  POQ   |  2025  |   |        |            |
+| 6    | Zainab |Ismail  |     I        |  POQ   |  2023  | :heavy_check_mark:  |       |
+| 7    | Yousef| Farid   |     C        |     |      |   |EFG    |   QA       |
+| 8    | Layla| Mustafa  |     C        |     |      |   |EFG    |   QA       |  
+| 9    | Mohammed| Adel  |     I        |  XYZ   |  2024 |   |       |            |
+| 10   | Samira| Nabil   |     I        | XYZ    |  2024  |   |       |            |
 
 </div>
 
