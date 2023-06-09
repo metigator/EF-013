@@ -164,24 +164,26 @@ CREATE TABLE Sections (
 
   ```csharp
 // Participant Table
-public abstract class Participant
-{
-    public int Id { get; set; }
-    public string ParticipantName { get; set; }
-}
+-- Students Table
+CREATE TABLE Participants (
+    Id INT PRIMARY KEY,
+    FName VARCHAR(255) NOT NULL,
+    LName VARCHAR(255) NOT NULL,
+);
 
 // Individual (الأفراد)
 public class IndividualParticipant : Participant
 {
-    public string Major {get; set;}
+    public string University {get; set;}
+    public int YearOfGraduation {get; set;}
+    public bool IsIntern {get; set;}
 }
 
 // Corporate (الشركات)dfd
 public class CorporateParticipant : Participant
 {
     public string Company { get; set; }
-    public string JobTitle { get; set; }
-    public string GroupNo { get; set; }
+    public string JobTitle { get; set; } 
 }
 
   ```
@@ -304,7 +306,7 @@ CREATE TABLE Participants (
 
 ```sql
 -- Corporate
-    CREATE TABLE CorporateParticipants (
+    CREATE TABLE Corporates (
     Id INT  PRIMARY KEY,
     Company NVARCHAR(50) NOT NULL
     JobTitle NVARCHAR(50) NOT NULL 
@@ -330,7 +332,7 @@ CREATE TABLE Participants (
     
     
 ```sql
--- IndividualParticipants
+-- Individuals
     CREATE TABLE Individual (
     Id INTEGER NOT NULL PRIMARY KEY,
     FName NVARCHAR(50) NOT NULL,
@@ -342,7 +344,7 @@ CREATE TABLE Participants (
 ```
 
 
-* Corporate Table 
+* Corporates Table 
 
 | Id   |FName| LName|        Company |  JobTitle |
 |------|------|-----------|---------|-----------|
