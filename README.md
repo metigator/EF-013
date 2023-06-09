@@ -165,11 +165,12 @@ CREATE TABLE Sections (
   ```csharp
 // Participant Table
 -- Students Table
-CREATE TABLE Participants (
-    Id INT PRIMARY KEY,
-    FName VARCHAR(255) NOT NULL,
-    LName VARCHAR(255) NOT NULL,
-);
+public class Participants 
+{
+    public int Id {get; set;}
+    public string FName {get; set;}
+    public string LName {get; set;}
+}
 
 // Individual (الأفراد)
 public class IndividualParticipant : Participant
@@ -187,7 +188,6 @@ public class CorporateParticipant : Participant
 }
 
   ```
-  
   
   
 > TPH (1 table per heirarchy)
