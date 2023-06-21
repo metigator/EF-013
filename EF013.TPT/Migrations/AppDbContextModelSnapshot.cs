@@ -46,13 +46,10 @@ namespace EF013.TPT.Migrations
                     b.Property<int>("SectionId")
                         .HasColumnType("int");
 
-                    b.Property<int>("StudentId")
-                        .HasColumnType("int");
-
                     b.Property<int>("ParticipantId")
                         .HasColumnType("int");
 
-                    b.HasKey("SectionId", "StudentId");
+                    b.HasKey("SectionId", "ParticipantId");
 
                     b.HasIndex("ParticipantId");
 

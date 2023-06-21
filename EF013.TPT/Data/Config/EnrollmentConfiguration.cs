@@ -8,7 +8,7 @@ namespace EF013.TPT.Data.Config
     {
         public void Configure(EntityTypeBuilder<Enrollment> builder)
         {
-            builder.HasKey(x => new { x.SectionId, x.StudentId });
+            builder.HasKey(x => new { x.SectionId, x.ParticipantId });
 
             builder.ToTable("Enrollments");
         }

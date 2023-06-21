@@ -166,12 +166,11 @@ namespace EF013.TPT.Migrations
                 columns: table => new
                 {
                     SectionId = table.Column<int>(type: "int", nullable: false),
-                    StudentId = table.Column<int>(type: "int", nullable: false),
                     ParticipantId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Enrollments", x => new { x.SectionId, x.StudentId });
+                    table.PrimaryKey("PK_Enrollments", x => new { x.SectionId, x.ParticipantId });
                     table.ForeignKey(
                         name: "FK_Enrollments_Particpants_ParticipantId",
                         column: x => x.ParticipantId,
